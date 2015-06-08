@@ -1,0 +1,24 @@
+Explanation and Notes
+
+(c) Ritobroto Maitra, 2015
+
+Reference Papers:
+
+0. Cube Attacks on Tweakable Black Box Polynomials - Itai Dinur and Adi Shamir
+1. Improving Key Recovery to 784 and 799 rounds of Trivium using Optimized Cube Attacks - Pierre-Alain Fouque and Thomas Vannet
+2. Higher Order Differentiation over Finite Fields with Applications to Generalising the Cube Attack - Ana Salagean, Matei Mandache-Salagean, Richard Winter
+
+It is difficult to solve equations in general - and in many cases, for even intuitively simple systems, it becomes an NP-hard problem. The main mathematical tool that is used in such a case is Grobner Basis. For a short introduction to this topic, read up on this link: [ https://math.berkeley.edu/~bernd/what-is.pdf ]
+
+The main observation in this paper is that the polynomial equations defined by many cryptographic schemes are not arbitrary and unrelated. Instead, they are typically variants derived from a single master polynomial by setting some tweakable variables to any desired value by the attacker. For example, in block ciphers and message authentication codes (MAC’s) the output depends on key bits which are secret and fixed, and on message bits which are public and control- lable by the attacker in a chosen plaintext attack.
+
+A natural implication is that we can now attack systems with a black-box view; and that we can now attack completely unknown cryptosystems, without going through the expensive and difficult process of hardware reverse engineering. 
+
+The polynomial is in algebraic normal form - ANF (Reed Muller Expansion) - using AND and XOR (Addition Modulo 2). 
+
+Essentially, if we can somehow form the polynomials that form the basis of these operations, then we can use the usual techniques to solve them (using linear algebra or Grobner Bases).
+
+## Question: Implementation looks different from conventional C-style codes.. use more mathematically oriented software, maybe?
+## Further: Implement this for mod p , prime
+
+
